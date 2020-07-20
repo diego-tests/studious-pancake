@@ -1,22 +1,16 @@
 <template>
-    <div
+    <AppUser
         v-if="user"
-        class="user"
-    >
-        <h1 v-text="fullName" />
-        <img
-            :src="user.avatar"
-            :alt="fullName"
-        >
-        <a 
-            :href="`mailto:${user.email}`"
-        >email: {{ user.email }}</a>
-        {{ user }}
-    </div>
+        :user="user"
+    />
 </template>
 <script>
 import { mapState } from 'vuex'
+import AppUser from '../components/AppUser/AppUser'
 export default {
+  components: {
+    AppUser,
+  },
   computed: {
     ...mapState({
       user: state=> state.api.displayedUser,
@@ -27,3 +21,15 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+img {
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+</style>

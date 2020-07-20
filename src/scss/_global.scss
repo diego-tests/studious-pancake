@@ -1,0 +1,29 @@
+@use 'reset';
+@use 'responsive' as *;
+@use 'fonts';
+@use 'color';
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: fonts.$muli;
+    font-size: 1.6rem;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 0 2rem;
+}

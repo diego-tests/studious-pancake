@@ -1,13 +1,17 @@
 <template>
     <section class="app-list">
-        AppList
-        <ListItem 
-            v-for="item in apiList"
-            :key="item.id"
-            :item="item"
-            :name="`${item.first_name} ${item.last_name}`"
-            :avatar="item.avatar"
-        />
+        <h1>
+            User List
+        </h1>
+        <ul>
+            <ListItem 
+                v-for="item in apiList"
+                :key="item.id"
+                :item="item"
+                :name="`${item.first_name} ${item.last_name}`"
+                :avatar="item.avatar"
+            />
+        </ul>
     </section>
 </template>
 <script>
@@ -37,3 +41,11 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 100%;
+}
+</style>

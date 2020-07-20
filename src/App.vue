@@ -5,11 +5,12 @@
 </template>
 
 <style lang="scss">
+@use './scss/global';
+</style>
+<style lang="scss" scoped>
 #app {
-    color: #2c3e50;
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+    margin: auto;
+    max-width: 120rem;
+    padding: 2rem 1rem 1rem;
 }
 </style>
