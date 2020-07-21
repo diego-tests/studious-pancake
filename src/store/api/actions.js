@@ -13,21 +13,20 @@ export const getUser = 'getUser'
 export const actions = {
 
   async [getNextPage]({ commit, state }) {
-    if(state.totalPages > state.lastPageFetched) {
+    if(state.totalPages < state.lastPageFetched) {
       return
     }
     let response
     try {
-      const newPage = state.pageNumber ? state.pageNumber + 1 : 1 
+      const newPage = state.lastPageFetched ? state.lastPageFetched + 1 : 1 
       response = (await axios(`${api}/users?page=${newPage}`))?.data
     } catch (err) {
       console.error(err)
     }
-
+    
     if (!response) {
       return
     }
-
     const page = response?.data
     const totalPages = response?.total_pages
     const pageNumber = response?.page
