@@ -13,7 +13,7 @@ export const getUser = 'getUser'
 export const actions = {
 
   async [getNextPage]({ commit, state }) {
-    if(state.totalPages < state.lastPageFetched) {
+    if((state.totalPages !== null) && (state.totalPages <= state.lastPageFetched)) {
       return
     }
     let response
