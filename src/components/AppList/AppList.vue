@@ -12,12 +12,19 @@
                 :avatar="item.avatar"
             />
         </ul>
+        <button
+            v-if="isMorePagesAvailabe"
+            data-testid="button"
+            @click="getNextPage"
+        >
+            Load more users
+        </button>
     </section>
 </template>
 <script>
 import  { mapGetters, mapActions } from 'vuex'
 import { getNextPage } from '../../store/api/actions'
-import { apiList } from '../../store/api/getters'
+import { apiList, isMorePagesAvailabe } from '../../store/api/getters'
 import ListItem from './ListItem/ListItem'
 
 export default {
@@ -25,8 +32,10 @@ export default {
     ListItem,
   },
   computed: {
+
     ...mapGetters({
       apiList,
+      isMorePagesAvailabe,
     }),
   },
   created() {
@@ -47,5 +56,15 @@ ul {
     flex-wrap: wrap;
     margin: auto;
     width: 100%;
+}
+
+button {
+    background: none;
+    border: solid 5px;
+    cursor: pointer;
+    display: block;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-transform: uppercase;
 }
 </style>
